@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Playwright results
+test-results/
+playwright-report/
+
+# VS Code settings
+.vscode/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Env & secrets
+.env
+*.env
+
+# Logs
+*.log
+
+# OS & Editor backup files
+*.swp
+*.swo
+*.tmp
+*.bak
+
+
