@@ -13,30 +13,31 @@ Clone the repository and run the following commands in your terminal:
 
 ## Running Tests
         ```bash
-        npx playwright test              #Run all tests
-        npx playwright test --ui         #Run tests in UI mode
+        npx playwright test              #Run all tests (NOTE: tests may fail in headless mode due to CAPTCHA)
+        npx playwright test --ui         #Run tests in UI mode (NOTE: tests may fail in headless mode due to CAPTCHA)
+        npx playwright test --headed     #Run tests in headed mode
 
 ## Running Tests via npm 
 ### You can also run tests using npm scripts:
         ```bash
-        npm test                         #Run all tests
-        npm run test:ui                  #Run tests in UI mode
+        npm test                         #Run all tests (NOTE: tests may fail in headless mode due to CAPTCHA)
+        npm run test:ui                  #Run tests in UI mode (NOTE: tests may fail in headless mode due to CAPTCHA)
         npm run test:headed              #Run tests in headed mode
 
 ## Running Positive Tests
         ```bash
-        npx playwright test --grep @positive
+        npx playwright test --grep @positive --headed
 ## Running Negative Tests
         ```bash
-        npx playwright test --grep @negative
+        npx playwright test --grep @negative --headed
 
 
 ## Positive Test Scenarios for Registration Form
 
-| ID   | Scenario Description                             |
-|------|--------------------------------------------------|
-| TC01  | All fields have correct inputs                         |
-| TC02  | Username of exactly 30 characters                |
+| ID   | Scenario Description                                           |
+|------|----------------------------------------------------------------|
+| TC01  | All fields have correct inputs                                 |
+| TC02  | Username of exactly 30 and |Password of exactly 75 characters |
 
 ## Negative Test Scenarios for Registration Form
 

@@ -15,7 +15,7 @@ export const emptyFields = {
 };
 
 
-export const invalidUserShortAndSpecial = {
+export const invalidShortAndSpecialEmail = {
   username: "Tan",          //too short
   email: "tan@@gmail.com",  //special char
   confirmEmail: "",         //empty
@@ -23,17 +23,17 @@ export const invalidUserShortAndSpecial = {
   confirmPassword: ""       //empty
 }
 
-export const invalidUserNotMatchAndSpecial = {
-  username: "Tanja@Pervan",       // special char
+export const invalidNotMatchAndSpecialUsername = {
+  username: "Tanja@Pervan",       // special char invalid format
   email: "tan@gmail.com",         // valid
-  confirmEmail: "other@mail.com",  // email mismatch
+  confirmEmail: "other@mail.com",  // email not match
   password: "12345678",           // valid
-  confirmPassword: "87654321"     // password mismatch
+  confirmPassword: "87654321"     // password not match
 };
-export const validMaxLenghtUsername = {
+export const validMaxLenghtUsernamePass = {
   username: 'x'.repeat(30),  //long username
   email: "tankja@maill.com",
   confirmEmail: "tankja@maill.com",
-  password: "Mara123456",
-  confirmPassword: "Mara123456"
+  password: 'x'.repeat(75),
+  confirmPassword: 'x'.repeat(75)
 };
