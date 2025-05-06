@@ -1,4 +1,5 @@
 import { expect, test } from '@playwright/test';
+import { registerMessages } from '../data/constants.js';
 import {
   emptyFields,
   invalidNotMatchAndSpecialUsername,
@@ -22,7 +23,7 @@ test.describe('@positive', () => {
     await registerPage.checkCheckbox(true);
     await registerPage.submitForm();
 
-    await expect(page.locator('h1')).toHaveText('Verify Your Email');
+    await expect(page.locator(registerLocators.verifySubmitEmail)).toHaveText('Verify Your Email');
   });
 
 
@@ -31,7 +32,7 @@ test.describe('@positive', () => {
     await registerPage.checkCheckbox(true);
     await registerPage.submitForm();
 
-    await expect(page.locator('h1')).toHaveText('Verify Your Email');
+    await expect(page.locator(registerLocators.verifySubmitEmail)).toHaveText('Verify Your Email');
   });
 });
 
@@ -42,14 +43,14 @@ test.describe('@negative', () => {
     await registerPage.checkCheckbox(false);
     await registerPage.submitForm();
 
-    await expect(page.locator(registerLocators.errorUsername)).toHaveText('Please enter Username.');
+    await expect(page.locator(registerLocators.errorUsername)).toHaveText(registerMessages.errorUsernameEmpty);
   });
 
 
   test('TS04 - Email invalid format', async ({ page }) => {
     await registerPage.fillEmail(invalidShortAndSpecialEmail.email);
 
-    await expect(page.locator(registerLocators.errorEmail)).toHaveText('Please enter a valid email address.');
+    await expect(page.locator(registerLocators.errorEmail)).toHaveText(registerMessages.errorEmailInvalid);
 
   });
 
@@ -58,32 +59,32 @@ test.describe('@negative', () => {
     await registerPage.fillEmail(invalidNotMatchAndSpecialUsername.email);
     await registerPage.fillConfirmEmail(invalidNotMatchAndSpecialUsername.confirmEmail);
 
-    await expect(page.locator(registerLocators.errorConfrimEmail)).toContainText('Email address does not match');
+    await expect(page.locator(registerLocators.errorConfrimEmail)).toContainText(registerMessages.errorEmailNotMatch);
   });
 
   test('TS06 - Password and Confirm Password do not match', async ({ page }) => {
     await registerPage.fillPassword(invalidNotMatchAndSpecialUsername.password);
     await registerPage.fillConfirmPassword(invalidNotMatchAndSpecialUsername.confirmPassword);
 
-    await expect(page.locator(registerLocators.errorConfrimPassword)).toContainText('Password does not match, please check again');
+    await expect(page.locator(registerLocators.errorConfrimPassword)).toContainText(registerMessages.errorPasswordNotMatch);
   });
 
   test('TS07 - Password is too short (less than 8 characters)', async ({ page }) => {
     await registerPage.fillPassword(invalidShortAndSpecialEmail.password);
 
-    await expect(page.locator(registerLocators.errorPassword)).toContainText('Your password must be at least 8 characters long')
+    await expect(page.locator(registerLocators.errorPassword)).toContainText(registerMessages.errorPasswordTooShort);
   });
 
   test('TS08 - Username is too short (less than 5 characters)', async ({ page }) => {
     await registerPage.fillUsername(invalidShortAndSpecialEmail.username);
 
-    await expect(page.locator(registerLocators.errorUsername)).toContainText('Please enter at least 5 characters')
+    await expect(page.locator(registerLocators.errorUsername)).toContainText(registerMessages.errorUsernameTooShort);
   });
 
   test('TS09 - Username must contain only alphanumeric characters', async ({ page }) => {
     await registerPage.fillUsername(invalidNotMatchAndSpecialUsername.username);
 
-    await expect(page.locator(registerLocators.errorUsername)).toContainText('Only alphanumeric characters allowed')
+    await expect(page.locator(registerLocators.errorUsername)).toContainText(registerMessages.errorUsernameNotAlphanumeric);
   });
 
   test('TS10 - Terms and Conditions checkbox is not selected  ', async ({ page }) => {
@@ -91,7 +92,7 @@ test.describe('@negative', () => {
     await registerPage.checkCheckbox(false);
     await registerPage.submitForm();
 
-    await expect(page.locator(registerLocators.errorTermsCheckBox)).toContainText('Please accept our Terms and Conditions');
+    await expect(page.locator(registerLocators.errorTermsCheckBox)).toContainText(registerMessages.errorTermsNotAccepted);
 
   });
 

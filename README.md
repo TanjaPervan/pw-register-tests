@@ -10,19 +10,19 @@ Clone the repository and run the following commands in your terminal:
 ```bash
         npm init -y                      # Initialize the project (creates package.json)
         npm i -D @playwright/test        # Install Playwright test library
-        npx playwright install   ```        # Download browsers (Chromium, Firefox, WebKit)
+        npx playwright install   ```     # Download browsers 
 ``` 
 ## Running Tests
 ```bash
-        npx playwright test              #Run all tests (NOTE: tests may fail in headless mode due to CAPTCHA)
-        npx playwright test --ui         #Run tests in UI mode (NOTE: tests may fail in headless mode due to CAPTCHA)
+        npx playwright test              #Run all tests (NOTE: in headless mode due to CAPTCHA)
+        npx playwright test --ui         #Run tests in UI mode (NOTE: in headless mode due to CAPTCHA)
         npx playwright test --headed     #Run tests in headed mode
 ``` 
 ## Running Tests via npm 
    ### You can also run tests using npm scripts:
 ```bash
-        npm test                         #Run all tests (NOTE: tests may fail in headless mode due to CAPTCHA)
-        npm run test:ui                  #Run tests in UI mode (NOTE: tests may fail in headless mode due to CAPTCHA)
+        npm test                         #Run all tests (NOTE: in headless mode due to CAPTCHA)
+        npm run test:ui                  #Run tests in UI mode (NOTE: in headless mode due to CAPTCHA)
         npm run test:headed              #Run tests in headed mode
 ``` 
 ## Running Test Grouping and Tagging
@@ -64,3 +64,11 @@ One test TC11 is skipped using `test.skip()` with a `TODO` note:
 
   });
 ```
+
+## Utilities
+
+### `randomDelay(min, max)`
+
+A helper function used to introduce randomized delays between test actions.  
+This simulates human-like interaction and helps avoid flakiness or UI rendering issues when running Playwright tests too quickly.
+
