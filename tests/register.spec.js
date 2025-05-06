@@ -23,7 +23,7 @@ test.describe('@positive', () => {
     await registerPage.checkCheckbox(true);
     await registerPage.submitForm();
 
-    await expect(page.locator(registerLocators.verifySubmitEmail)).toHaveText('Verify Your Email');
+    await expect(page.locator(registerLocators.verifySubmitEmail)).toHaveText(registerMessages.verifyEmail);
   });
 
 
@@ -32,7 +32,7 @@ test.describe('@positive', () => {
     await registerPage.checkCheckbox(true);
     await registerPage.submitForm();
 
-    await expect(page.locator(registerLocators.verifySubmitEmail)).toHaveText('Verify Your Email');
+    await expect(page.locator(registerLocators.verifySubmitEmail)).toHaveText(registerMessages.verifyEmail);
   });
 });
 
