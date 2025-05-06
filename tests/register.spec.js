@@ -96,7 +96,7 @@ test.describe('@negative', () => {
   });
 
   test.skip('TS11 - Username is already taken ', async ({ page }) => {
-  //TODO: implement this
+    //TODO: implement this when CAPTCHA bypass is available
 
   });
 
