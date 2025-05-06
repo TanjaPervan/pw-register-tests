@@ -4,7 +4,7 @@ export const actions = {
       const field = page.locator(selector);
       await field.waitFor({ state: 'visible', timeout: 5000 });
       await field.click();
-      await field.type(value);
+      await field.type(value, { delay: 120 });
     } catch (e) {
       console.error(`fillField error for ${selector} msg: ${e.message}`);
       throw e;
@@ -14,7 +14,6 @@ export const actions = {
   async checkCheckbox(page, selector) {
     try {
       const checkbox = page.locator(selector);
-      await checkbox.waitFor({ state: 'visible', timeout: 3000 });
       if (!(await checkbox.isChecked())) {
         await checkbox.check();
       }

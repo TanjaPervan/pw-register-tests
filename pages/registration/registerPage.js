@@ -30,12 +30,14 @@ export class RegisterPage {
 
   async checkCheckbox(terms) {
     if (terms) {
-      await this.page.waitForTimeout(randomDelay());
       await actions.checkCheckbox(this.page, registerLocators.termsCheckBox);
+      await this.page.waitForTimeout(randomDelay());
+
     }
     else {
-      await this.page.waitForTimeout(randomDelay());
       await this.page.uncheck(registerLocators.termsCheckBox);
+      await this.page.waitForTimeout(randomDelay());
+
     }
   }
 

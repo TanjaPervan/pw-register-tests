@@ -1,7 +1,7 @@
 export const validUser = {
-  username: "tanja123456",
-  email: "tanja@maill.com",
-  confirmEmail: "tanja@maill.com",
+  username: "takitanja123456",
+  email: "tankja@maill.com",
+  confirmEmail: "tankja@maill.com",
   password: "Mara123456",
   confirmPassword: "Mara123456"
 };
