@@ -11,5 +11,7 @@
   "description": "End-to-end tests using Playwright",
   "devDependencies": {
     "@playwright/test": "^1.52.0"
-  }
+  },
+  "type": "module"
+
 }
